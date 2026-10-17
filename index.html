@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>佛山六中 905 班 · 校运会相册 · 选择摄影师</title>
+<meta name="description" content="佛山六中905班校运会照片相册——按摄影师分类浏览">
+<script>try{var _t=localStorage.getItem('album-theme');document.documentElement.dataset.theme=(_t==='light'?'light':'dark');}catch(e){}</script>
+<style>
+:root{
+  --bg:#0d0f13; --surface:#151a21; --surface2:#1c222c; --chip:#1a202b;
+  --text:#eef1f6; --muted:#98a2b3; --accent:#ff8a3d; --accent2:#ffb37e;
+  --border:#262d39; --shadow:0 10px 30px rgba(0,0,0,.45);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  color-scheme:dark;
+}
+html[data-theme="light"]{
+  --bg:#f4f5f7; --surface:#ffffff; --surface2:#eceff3; --chip:#ffffff;
+  --text:#181d26; --muted:#5f6b7a; --accent:#e06a12; --accent2:#ff8a3d;
+  --border:#e2e6ec; --shadow:0 10px 30px rgba(20,30,50,.10);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--text);overflow-x:hidden;
+  font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.5;min-height:100vh;
+  display:flex;flex-direction:column;min-height:100dvh;
+}
+svg.ic{width:1.25em;height:1.25em;flex:none;vertical-align:-0.28em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+.topbar{
+  position:sticky;top:0;z-index:40;
+  display:flex;align-items:center;gap:12px;justify-content:space-between;
+  padding:10px clamp(14px,4vw,28px);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 0}
+.brand-badge{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1c1208;
+}
+.brand-text{flex:1 1 0;min-width:0;overflow:hidden}
+.brand h1{font-size:clamp(15px,2.2vw,18px);font-weight:700;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.brand p{font-size:12px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.actions{display:flex;gap:8px;flex:none}
+.tool-btn{
+  display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 13px;
+  border-radius:11px;border:1px solid var(--border);background:var(--surface);
+  color:var(--text);font-size:13px;
+  transition:background .3s var(--ease-out),border-color .3s var(--ease-out),color .3s,transform .35s var(--ease-spring);
+}
+.tool-btn:hover{border-color:var(--accent);color:var(--accent2)}
+.tool-btn:active{transform:scale(.94)}
+.tool-btn .ic{width:1.15em;height:1.15em}
+html[data-theme="dark"] .ic-moon{display:none}
+html[data-theme="light"] .ic-sun{display:none}
+.thumb-btn{width:38px;padding:0;justify-content:center}
+
+main{flex:1;padding:38px clamp(14px,4vw,28px) 56px;max-width:1280px;margin:0 auto;width:100%}
+.hero{text-align:center;margin-bottom:34px;animation:heroIn .7s var(--ease-out) both}
+@keyframes heroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero h2{
+  font-size:clamp(24px,4.5vw,34px);font-weight:800;letter-spacing:1px;
+  background:linear-gradient(120deg,var(--text) 55%,var(--accent2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{margin-top:10px;color:var(--muted);font-size:clamp(13px,2vw,15px)}
+.hero p b{color:var(--text);font-variant-numeric:tabular-nums}
+
+.pg-grid{
+  display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  max-width:960px;margin:0 auto;
+}
+.pg-card{
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;
+  padding:30px 18px 26px;border-radius:18px;text-decoration:none;color:var(--text);
+  background:var(--surface);border:1px solid var(--border);
+  box-shadow:0 1px 4px rgba(0,0,0,.12);
+  animation:cardIn .6s var(--ease-out) both;animation-delay:var(--dly,0ms);
+  transition:transform .4s var(--ease-spring),box-shadow .4s var(--ease-out),border-color .35s;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(26px) scale(.96)}
+  60%{opacity:.85}
+  to{opacity:1;transform:none}
+}
+@media (hover:hover){
+  .pg-card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--accent);box-shadow:var(--shadow)}
+  .pg-card:hover .pg-go{color:var(--accent);transform:translateX(4px)}
+  .pg-card:hover .pg-avatar{transform:scale(1.08) rotate(-3deg)}
+}
+.pg-card:active{transform:scale(.97)}
+.pg-avatar{
+  width:74px;height:74px;border-radius:50%;display:grid;place-items:center;
+  font-size:31px;font-weight:800;color:#1c1208;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 8px 22px rgba(255,138,61,.28);
+  transition:transform .45s var(--ease-spring);
+}
+.pg-name{font-size:17px;font-weight:700;letter-spacing:.3px}
+.pg-meta{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.pg-go{
+  position:absolute;right:14px;bottom:12px;width:1.1em;height:1.1em;color:var(--muted);
+  transition:color .3s,transform .4s var(--ease-spring);
+}
+
+.footer{
+  padding:22px clamp(14px,4vw,28px) calc(26px + env(safe-area-inset-bottom));
+  border-top:1px solid var(--border);text-align:center;
+  color:var(--muted);font-size:12px;line-height:1.9;
+}
+@media (max-width:520px){
+  .brand-badge{width:34px;height:34px}
+  .brand h1{font-size:14px}
+  .brand p{font-size:11px}
+  .tool-btn{width:36px;padding:0;justify-content:center}
+  main{padding-top:28px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-badge" aria-hidden="true">
+      <svg class="ic"><use href="#i-camera"/></svg>
+    </span>
+    <div class="brand-text">
+      <h1>佛山六中 905 班校运会相册</h1>
+      <p>选择摄影师，进入其相册</p>
+    </div>
+  </div>
+  <div class="actions">
+    <button id="themeBtn" class="tool-btn thumb-btn" title="切换深色/浅色模式" aria-label="切换深色/浅色模式">
+      <svg class="ic ic-sun"><use href="#i-sun"/></svg>
+      <svg class="ic ic-moon"><use href="#i-moon"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h2>选择摄影师</h2>
+    <p><b>4</b> 位摄影师 · 共 <b>452</b> 张照片</p>
+  </div>
+  <div class="pg-grid">
+    <a class="pg-card" href="./邓老师.html" style="--dly:0ms" aria-label="查看邓老师拍摄的照片">
+      <span class="pg-avatar" aria-hidden="true">邓</span>
+      <span class="pg-name">邓老师</span>
+      <span class="pg-meta">253 张照片 · 3 个文件夹</span>
+      <svg class="ic pg-go" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+    </a>
+    <a class="pg-card" href="./杨维惟.html" style="--dly:70ms" aria-label="查看杨维惟拍摄的照片">
+      <span class="pg-avatar" aria-hidden="true">杨</span>
+      <span class="pg-name">杨维惟</span>
+      <span class="pg-meta">87 张照片</span>
+      <svg class="ic pg-go" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+    </a>
+    <a class="pg-card" href="./许志浩.html" style="--dly:140ms" aria-label="查看许志浩拍摄的照片">
+      <span class="pg-avatar" aria-hidden="true">许</span>
+      <span class="pg-name">许志浩</span>
+      <span class="pg-meta">79 张照片</span>
+      <svg class="ic pg-go" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+    </a>
+    <a class="pg-card" href="./李铭楷.html" style="--dly:210ms" aria-label="查看李铭楷拍摄的照片">
+      <span class="pg-avatar" aria-hidden="true">李</span>
+      <span class="pg-name">李铭楷</span>
+      <span class="pg-meta">33 张照片</span>
+      <svg class="ic pg-go" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+    </a>
+  </div>
+</main>
+
+<footer class="footer">
+  佛山六中 905 班 · 校运会留影 · 图标来自共用图标库 Lucide
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-camera" viewBox="0 0 24 24">
+    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+    <circle cx="12" cy="13" r="3"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+    <path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+</svg>
+
+<script>
+(function () {
+  'use strict';
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var html = document.documentElement;
+    var next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    html.dataset.theme = next;
+    try { localStorage.setItem('album-theme', next); } catch (err) {}
+  });
+})();
+</script>
+</body>
+</html>
